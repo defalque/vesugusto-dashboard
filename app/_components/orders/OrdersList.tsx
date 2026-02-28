@@ -20,7 +20,7 @@ function OrdersList({ orders }: { orders: OrdersInfo[] }) {
           <td className="px-4 text-sm whitespace-nowrap">
             <div className="flex items-center gap-3">
               <Image
-                src={order.userId.image}
+                src={order.userId?.image ?? "/default-user.jpg"}
                 className="shrink-0 rounded-full"
                 width={34}
                 height={34}

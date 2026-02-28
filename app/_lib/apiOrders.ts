@@ -21,7 +21,7 @@ export async function getOrders(
   let query = supabase
     .from("orders")
     .select(
-      "id, orderDate, status, users:users!orders_userId_clerkUserId_fkey (image), name, email, totalCost, order_items(productId(name, regularPrice), quantity)",
+      "id, orderDate, status, users:users!orders_userId_user_id_fkey (image), name, email, totalCost, order_items(productId(name, regularPrice), quantity)",
     )
     .range(from, to);
 
@@ -64,7 +64,7 @@ export async function getOrders(
 
     return {
       ...order,
-      userId: Array.isArray(order.users) ? order.users[0] : order.users, // <-- aggiungi questa normalizzazione
+      userId: Array.isArray(order.users) ? order.users[0] : order.users,
       order_items: normalizedOrderItems,
     };
   });
@@ -140,7 +140,7 @@ export const getOrder = cache(async (id: string) => {
   const { data, error } = await supabase
     .from("orders")
     .select(
-      "id, orderDate, status, users:users!orders_userId_clerkUserId_fkey (image), name, email, totalCost, order_items(productId(name, regularPrice), quantity)",
+      "id, orderDate, status, users:users!orders_userId_user_id_fkey (image), name, email, totalCost, order_items(productId(name, regularPrice), quantity)",
     )
     .eq("id", id)
     .maybeSingle();
@@ -285,7 +285,7 @@ export async function getOrdersActivity() {
   const { data, error } = await supabase
     .from("orders")
     .select(
-      "id, users:users!orders_userId_clerkUserId_fkey (image), name, email, orderDate, status, totalCost",
+      "id, users:users!orders_userId_user_id_fkey (image), name, email, orderDate, status, totalCost",
     )
     .order("created_at", { ascending: false })
     .neq("status", "delivered");
@@ -298,7 +298,7 @@ export async function getOrdersActivity() {
     return null;
   }
 
-  const fixedOrders = data.map((order) => ({
+  const fixedOrders = (data ?? []).map((order) => ({
     ...order,
     users: Array.isArray(order.users) ? order.users[0] : order.users,
   }));

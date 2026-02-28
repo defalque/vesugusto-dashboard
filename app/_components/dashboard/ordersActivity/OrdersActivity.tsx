@@ -120,7 +120,7 @@ function OrdersActivity({ orders }: { orders: LatestOrdersInfo[] }) {
                     >
                       <div className="flex items-center gap-2">
                         <Image
-                          src={order.users.image}
+                          src={order.users?.image ?? "/default-user.jpg"}
                           className="shrink-0 rounded-full"
                           width={28}
                           height={28}

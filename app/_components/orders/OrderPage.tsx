@@ -90,7 +90,7 @@ async function OrderPage({ params }: { params: Promise<{ orderId: string }> }) {
               <dd className="">
                 <div className="flex items-center gap-2">
                   <Image
-                    src={order.userId?.image}
+                    src={order.userId?.image ?? "/default-user.jpg"}
                     className="rounded-full"
                     width={28}
                     height={28}
