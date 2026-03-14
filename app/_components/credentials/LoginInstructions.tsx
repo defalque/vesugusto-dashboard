@@ -39,7 +39,7 @@ function LoginInstructions() {
 
   return (
     <MotionConfig transition={{ type: "spring", bounce: 0, duration: 0.2 }}>
-      <div className="dark:text-light mt-5 flex w-full flex-col gap-3 px-5 text-sm text-neutral-700 sm:px-10">
+      <div className="dark:text-light mt-5 flex w-full flex-col gap-3 text-sm text-neutral-700 sm:px-10">
         <div className="relative inline-flex items-center gap-2 rounded bg-neutral-100 px-2 py-1 font-mono text-sm dark:bg-zinc-800">
           <code ref={emailRef} aria-readonly>
             copomi9452@dekpal.com

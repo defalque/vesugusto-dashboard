@@ -58,7 +58,7 @@ export default function Dropdown({
                 variation === "ordine"
                   ? type === "page"
                     ? `orders/${itemId}`
-                    : `dashboard/orders/${itemId}`
+                    : `orders/${itemId}`
                   : `products/${itemId}`
               }
               className={`${type === "overview" ? "rounded-lg px-3 py-1.5 lg:rounded-md lg:px-1.5 lg:py-1" : "rounded-lg px-3 py-1.5"} group data-focus:bg-brand-950/10 flex w-full cursor-pointer items-center gap-2 dark:data-focus:bg-zinc-800/85`}

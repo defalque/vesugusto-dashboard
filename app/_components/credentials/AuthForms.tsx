@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 
-import useMeasure from "react-use-measure";
-
 import LazyLoginCredentialsForm from "./LazyLoginCredentialsForm";
 import LazySignupCredentialsForm from "./LazySignupCredentialsForm";
 
@@ -12,7 +10,6 @@ import * as m from "motion/react-m";
 
 export default function AuthForms() {
   const [form, setForm] = useState<"login" | "signup">("login");
-  const [ref, bounds] = useMeasure();
 
   const variants = {
     initial: { x: form === "login" ? "-110%" : "110%", opacity: 0, scale: 0.9 },
@@ -24,8 +21,8 @@ export default function AuthForms() {
 
   return (
     <div className="dark:text-light my-auto w-full gap-1 overflow-hidden rounded-md text-neutral-700 sm:w-110 dark:shadow-zinc-700">
-      <m.div animate={{ height: bounds.height }}>
-        <div ref={ref} className="relative">
+      <div>
+        <div className="relative">
           <AnimatePresence mode="popLayout" initial={false}>
             <m.div
               key={form}
@@ -55,7 +52,7 @@ export default function AuthForms() {
             </m.div>
           </AnimatePresence>
         </div>
-      </m.div>
+      </div>
     </div>
   );
 }
