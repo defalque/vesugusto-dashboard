@@ -1,5 +1,17 @@
-import LazyAuthForms from "@/app/_components/credentials/LazyAuthForms";
+import { redirect } from "next/navigation";
 
-export default function Page() {
+import LazyAuthForms from "@/app/_components/credentials/LazyAuthForms";
+import { createClient } from "@/utils/supabase/server";
+
+export default async function Page() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (user) {
+    redirect("/dashboard/overview");
+  }
+
   return <LazyAuthForms />;
 }

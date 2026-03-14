@@ -11,6 +11,8 @@ import {
 } from "react-icons/hi2";
 import LoginInstructions from "./LoginInstructions";
 import { CredentialsFormProps } from "@/app/_lib/definitions";
+import * as m from "motion/react-m";
+import { AnimatePresence } from "motion/react";
 
 type FormProps = ComponentPropsWithoutRef<"form"> & CredentialsFormProps;
 
@@ -71,22 +73,20 @@ function CredentialsForm({
           Form di {title}
         </HeadingFormHidden>
 
-        {state.error && (
-          <div className="flex max-w-sm items-start gap-2 rounded-lg bg-red-600 p-2 text-sm font-medium text-white dark:bg-red-600/20 dark:text-red-500">
-            <HiOutlineExclamationCircle className="size-5 shrink-0" />
-            <span>
-              {state.error === "Invalid login credentials"
-                ? "Credenziali non valide"
-                : state.error}
-            </span>
-          </div>
-        )}
-        {state.success && (
-          <div className="flex max-w-sm items-start gap-2 rounded-lg bg-green-600/10 p-2 text-xs text-green-600">
-            <HiOutlineCheckCircle className="size-5 shrink-0" />
-            <span>{state.success}</span>
-          </div>
-        )}
+        <AnimatePresence mode="wait" initial={false}>
+          {state.success && !pending && (
+            <m.div
+              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: -10 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="flex max-w-full items-start gap-2 rounded-lg bg-green-600/10 p-2 text-sm text-green-600"
+            >
+              <HiOutlineCheckCircle className="size-5 shrink-0" />
+              <span>{state.success || "Success"}</span>
+            </m.div>
+          )}
+        </AnimatePresence>
 
         <FormRow
           type="email"
@@ -123,18 +123,6 @@ function CredentialsForm({
           {title === "Login" ? "Accedi" : "Registrati"}
         </button>
 
-        {/* <Button
-        className="mt-10 w-full px-4 text-lg"
-        disabled={pending}
-        aria-label={
-          title === "Login"
-            ? "Accedi al tuo account"
-            : "Registrati su Vesugusto"
-        }
-      >
-        {title === "Login" ? "Accedi" : "Registrati"}
-      </Button> */}
-
         <span className="block text-center text-sm text-neutral-500 dark:text-neutral-400">
           {title === "Login" && "Non hai un account? "}
           {title === "Registrazione" && "Hai già un account? "}
@@ -147,6 +135,25 @@ function CredentialsForm({
             {title === "Registrazione" && "Accedi"}
           </button>
         </span>
+
+        <AnimatePresence mode="popLayout" initial={false}>
+          {state.error && !pending && (
+            <m.div
+              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 10 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="flex max-w-full items-start justify-center gap-2 rounded-lg bg-red-600 p-2 text-sm font-medium text-white dark:bg-red-600/20 dark:text-red-500"
+            >
+              <HiOutlineExclamationCircle className="size-5 shrink-0" />
+              <span>
+                {state.error === "Invalid login credentials"
+                  ? "Credenziali non valide"
+                  : state.error}
+              </span>
+            </m.div>
+          )}
+        </AnimatePresence>
       </form>
     </>
   );

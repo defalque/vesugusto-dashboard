@@ -20,11 +20,9 @@ export function UserAvatarSkeleton() {
   );
 }
 
-export function LoginFormSkeleton({ isAuthForm }: { isAuthForm?: true }) {
+export function LoginFormSkeleton() {
   return (
-    <div
-      className={`bg-box box-style ${isAuthForm && "border"} _animate-pulse w-full gap-3 rounded-md sm:w-110`}
-    >
+    <div className={`my-auto w-full gap-3 rounded-md sm:w-110`}>
       <div className="dark:text-light _mt-5 flex w-full flex-col gap-3.5 px-5 pt-5 text-sm text-neutral-700 sm:px-10">
         <div className="flex items-center justify-between">
           <div className="flex gap-2">

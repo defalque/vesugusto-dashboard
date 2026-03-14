@@ -7,8 +7,8 @@ import { AnimatePresence, MotionConfig } from "motion/react";
 import * as m from "motion/react-m";
 
 function LoginInstructions() {
-  const emailRef = useRef<HTMLSpanElement>(null);
-  const pwdRef = useRef<HTMLSpanElement>(null);
+  const emailRef = useRef<HTMLElement>(null);
+  const pwdRef = useRef<HTMLElement>(null);
 
   const [copiedField, setCopiedField] = useState<"email" | "password" | null>(
     null,
@@ -18,7 +18,7 @@ function LoginInstructions() {
   const isPasswordCopied = copiedField === "password";
 
   const copy = async (
-    curRef: React.RefObject<HTMLSpanElement | null>,
+    curRef: React.RefObject<HTMLElement | null>,
     field: "email" | "password",
   ) => {
     if (!curRef.current) return;
@@ -40,18 +40,15 @@ function LoginInstructions() {
   return (
     <MotionConfig transition={{ type: "spring", bounce: 0, duration: 0.2 }}>
       <div className="dark:text-light mt-5 flex w-full flex-col gap-3 px-5 text-sm text-neutral-700 sm:px-10">
-        <div className="flex items-center justify-between gap-8">
-          <div className="space-x-2">
-            <span className="font-medium">Email:</span>
-            <span ref={emailRef} aria-readonly>
-              copomi9452@dekpal.com
-            </span>
-          </div>
+        <div className="relative inline-flex items-center gap-2 rounded bg-neutral-100 px-2 py-1 font-mono text-sm dark:bg-zinc-800">
+          <code ref={emailRef} aria-readonly>
+            copomi9452@dekpal.com
+          </code>
           <button
             type="button"
             title={isEmailCopied ? "Email copiata" : "Copia email"}
             aria-label={isEmailCopied ? "Email copiata" : "Copia email"}
-            className="touch-hitbox ml-auto cursor-pointer rounded border border-gray-300 bg-white p-1 transition-all duration-200 hover:bg-gray-100 active:scale-96 active:bg-gray-100 disabled:cursor-default disabled:bg-transparent disabled:hover:bg-transparent disabled:active:bg-transparent dark:border-zinc-700 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:active:bg-zinc-800"
+            className="touch-hitbox ml-auto shrink-0 cursor-pointer rounded p-1 transition-all duration-200 hover:bg-neutral-200/80 active:scale-96 disabled:cursor-default disabled:hover:bg-transparent dark:hover:bg-zinc-900/40"
             disabled={isEmailCopied}
             onClick={() => copy(emailRef, "email")}
           >
@@ -65,7 +62,7 @@ function LoginInstructions() {
                 >
                   <CheckIcon
                     aria-hidden
-                    className="dark:text-light size-5 text-neutral-700"
+                    className="size-5 text-green-600 dark:text-green-500"
                   />
                 </m.span>
               ) : (
@@ -85,20 +82,17 @@ function LoginInstructions() {
           </button>
         </div>
 
-        <div className="flex items-center justify-between gap-8">
-          <div className="space-x-2">
-            <span className="font-medium">Password:</span>
-            <span ref={pwdRef} aria-readonly>
-              1234567890
-            </span>
-          </div>
+        <div className="relative inline-flex items-center gap-2 rounded bg-neutral-100 px-2 py-1 font-mono text-sm dark:bg-zinc-800">
+          <code ref={pwdRef} aria-readonly>
+            1234567890
+          </code>
           <button
             type="button"
             title={isPasswordCopied ? "Password copiata" : "Copia password"}
             aria-label={
               isPasswordCopied ? "Password copiata" : "Copia password"
             }
-            className="touch-hitbox ml-auto block cursor-pointer rounded border border-gray-300 bg-white p-1 transition-all duration-200 hover:bg-gray-100 active:scale-96 active:bg-gray-100 disabled:cursor-default disabled:bg-transparent disabled:hover:bg-transparent disabled:active:bg-transparent dark:border-zinc-700 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:active:bg-zinc-800"
+            className="touch-hitbox ml-auto shrink-0 cursor-pointer rounded p-1 transition-all duration-200 hover:bg-neutral-200/80 active:scale-96 disabled:cursor-default disabled:hover:bg-transparent dark:hover:bg-zinc-900/40"
             disabled={isPasswordCopied}
             onClick={() => copy(pwdRef, "password")}
           >
@@ -112,7 +106,7 @@ function LoginInstructions() {
                 >
                   <CheckIcon
                     aria-hidden
-                    className="dark:text-light size-5 text-neutral-700"
+                    className="size-5 text-green-700 dark:text-green-500"
                   />
                 </m.span>
               ) : (

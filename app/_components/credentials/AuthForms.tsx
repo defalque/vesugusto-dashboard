@@ -23,7 +23,7 @@ export default function AuthForms() {
   const transition = { type: "spring" as const, bounce: 0, duration: 0.5 };
 
   return (
-    <div className="box-style bg-box dark:text-light w-full gap-1 overflow-hidden rounded-md border text-neutral-700 shadow-xl/20 sm:w-110 dark:shadow-zinc-700">
+    <div className="dark:text-light my-auto w-full gap-1 overflow-hidden rounded-md text-neutral-700 sm:w-110 dark:shadow-zinc-700">
       <m.div animate={{ height: bounds.height }}>
         <div ref={ref} className="relative">
           <AnimatePresence mode="popLayout" initial={false}>
@@ -33,7 +33,6 @@ export default function AuthForms() {
               initial="initial"
               animate="animate"
               exit="exit"
-              // transition={transition}
               transition={transition}
             >
               {form === "login" ? (
