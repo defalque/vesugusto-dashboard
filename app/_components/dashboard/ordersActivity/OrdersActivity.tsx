@@ -171,7 +171,7 @@ function OrdersActivity({ orders }: { orders: LatestOrdersInfo[] }) {
                 </span>
               </div>
 
-              <div className="space-x-3 text-sm lg:space-x-2 lg:text-xs">
+              <div className="flex items-center gap-2 text-sm lg:text-xs">
                 {currentPage && (
                   <button
                     disabled={currentPage === 1}
@@ -182,7 +182,7 @@ function OrdersActivity({ orders }: { orders: LatestOrdersInfo[] }) {
                       setDirection(-1);
                       setCurrentPage((prev) => prev - 1);
                     }}
-                    className="bg-brand-950 hover:bg-brand-900 dark:bg-brand-dark-600 dark:hover:bg-brand-dark-400 border-brand-dark-100 disabled:hover:bg-brand-950 dark:disabled:hover:bg-brand-dark-600 cursor-pointer rounded px-2 py-2 font-semibold text-white transition-colors duration-150 text-shadow-2xs disabled:cursor-not-allowed disabled:opacity-50 lg:py-1 dark:border"
+                    className="bg-brand-950 hover:bg-brand-900 touch-hitbox border-brand-950 flex cursor-pointer items-center rounded-lg border p-2 font-semibold text-white shadow-sm inset-shadow-2xs transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-zinc-700/80 lg:py-1 dark:border-zinc-700/40 dark:bg-zinc-700/80 dark:inset-shadow-white/20 dark:hover:bg-zinc-600/90"
                   >
                     Indietro
                   </button>
@@ -199,7 +199,7 @@ function OrdersActivity({ orders }: { orders: LatestOrdersInfo[] }) {
                       setDirection(1);
                       setCurrentPage((prev) => prev + 1);
                     }}
-                    className="bg-brand-950 hover:bg-brand-900 dark:bg-brand-dark-600 dark:hover:bg-brand-dark-400 border-brand-dark-100 disabled:hover:bg-brand-950 dark:disabled:hover:bg-brand-dark-600 cursor-pointer rounded px-2 py-2 font-semibold text-white transition-colors duration-150 text-shadow-2xs disabled:cursor-not-allowed disabled:opacity-50 lg:py-1 dark:border"
+                    className="bg-brand-950 hover:bg-brand-900 touch-hitbox border-brand-950 flex cursor-pointer items-center rounded-lg border p-2 font-semibold text-white shadow-sm inset-shadow-2xs transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-zinc-700/80 lg:py-1 dark:border-zinc-700/40 dark:bg-zinc-700/80 dark:inset-shadow-white/20 dark:hover:bg-zinc-600/90"
                   >
                     Avanti
                   </button>
