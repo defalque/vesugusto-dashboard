@@ -38,7 +38,7 @@ function Filter({ filterField, options }: FilterProps) {
     <div className="hidden lg:flex">
       <Listbox value={selected} by="value" onChange={handleChange}>
         <div className="relative w-52">
-          <ListboxButton className="data-focus:border-brand-950 data-focus:ring-brand-950/20 relative h-full w-full cursor-pointer rounded-lg border border-gray-300 py-2 pr-8 pl-3 text-left text-black shadow-sm focus:not-data-focus:outline-none data-focus:ring-4 data-focus:outline-none dark:border-zinc-700/60 dark:bg-zinc-700/35 dark:text-white dark:data-focus:border-zinc-400 dark:data-focus:ring-zinc-600">
+          <ListboxButton className="data-focus:border-brand-950 data-focus:ring-brand-950/20 relative h-full w-full cursor-pointer rounded-lg border border-gray-300 py-2 pr-8 pl-3 text-left text-black transition-colors duration-100 ease-in hover:border-gray-400/70 focus:not-data-focus:outline-none data-focus:ring-4 data-focus:outline-none dark:border-zinc-700/60 dark:bg-zinc-700/35 dark:text-white dark:hover:border-zinc-600/80 dark:data-focus:border-zinc-400 dark:data-focus:ring-zinc-600">
             {selectedLabel}
             <AdjustmentsVerticalIcon
               className="group pointer-events-none absolute top-1/2 right-2.5 size-5 -translate-y-1/2 dark:text-white"
