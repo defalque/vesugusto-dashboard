@@ -1,7 +1,6 @@
 "use client";
 
 import { useDateRangeContext } from "@/app/_contexts/DateRangeProvider";
-import { DateRange } from "@/app/_lib/definitions";
 import {
   Listbox,
   ListboxButton,
@@ -9,12 +8,7 @@ import {
   ListboxOptions,
 } from "@headlessui/react";
 import { CheckIcon, CalendarDaysIcon } from "@heroicons/react/24/outline";
-
-const DATE_RANGE_OPTIONS: { value: DateRange; label: string }[] = [
-  { value: "last-7-days", label: "Ultima settimana" },
-  { value: "last-month", label: "Ultimo mese" },
-  { value: "last-year", label: "Ultimo anno" },
-];
+import { DATE_RANGE_OPTIONS } from "./dateRangeOptions";
 
 function DateRangePicker() {
   const { router, pathname, createQueryString, urlSearchParams } =
@@ -27,13 +21,14 @@ function DateRangePicker() {
     DATE_RANGE_OPTIONS[0];
   const selectedLabel = selected.label;
 
-  const handleChange = (option: { value: DateRange; label: string }) => {
+  const handleChange = (option: (typeof DATE_RANGE_OPTIONS)[number]) => {
     router.push(pathname + "?" + createQueryString("dateRange", option.value));
   };
 
   return (
-    <Listbox value={selected} by="value" onChange={handleChange}>
-      <div className="relative w-46">
+    <div className="hidden lg:block">
+      <Listbox value={selected} by="value" onChange={handleChange}>
+        <div className="relative w-46">
         <ListboxButton
           aria-label="Data range"
           className="data-focus:border-brand-950 data-focus:ring-brand-950/20 relative h-full w-full cursor-pointer rounded-lg border border-gray-300 py-2 pr-8 pl-3 text-left text-sm text-black shadow-xs transition-colors duration-100 ease-in hover:border-gray-400/70 focus:not-data-focus:outline-none data-focus:ring-4 data-focus:outline-none dark:border-zinc-700/60 dark:bg-zinc-700/35 dark:text-white dark:hover:border-zinc-600/80 dark:data-focus:border-zinc-400 dark:data-focus:ring-zinc-600"
@@ -65,7 +60,8 @@ function DateRangePicker() {
           </ListboxOption>
         ))}
       </ListboxOptions>
-    </Listbox>
+      </Listbox>
+    </div>
   );
 }
 

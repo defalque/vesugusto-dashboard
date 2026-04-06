@@ -29,7 +29,7 @@ export default function SidebarDrawer({
           onClick={() => {
             setIsOpen(true);
           }}
-          className="focus touch-hitbox flex cursor-pointer items-center rounded-md p-1 text-sm"
+          className="focus touch-hitbox flex cursor-pointer items-center rounded-md p-1 text-sm hover:bg-gray-100/70 dark:hover:bg-zinc-950"
         >
           <Bars3Icon
             aria-hidden

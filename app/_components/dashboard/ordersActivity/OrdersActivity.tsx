@@ -182,7 +182,7 @@ function OrdersActivity({ orders }: { orders: LatestOrdersInfo[] }) {
                       setDirection(-1);
                       setCurrentPage((prev) => prev - 1);
                     }}
-                    className="bg-brand-950 hover:bg-brand-900 touch-hitbox border-brand-950 flex cursor-pointer items-center rounded-lg border p-2 font-semibold text-white shadow-sm inset-shadow-2xs transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-zinc-700/80 lg:py-1 dark:border-zinc-700/40 dark:bg-zinc-700/80 dark:inset-shadow-white/20 dark:hover:bg-zinc-600/90"
+                    className="bg-brand-950 hover:bg-brand-900 touch-hitbox border-brand-950 disabled:hover:bg-brand-950 flex cursor-pointer items-center rounded-lg border p-2 font-semibold text-white shadow-sm inset-shadow-2xs transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-50 lg:py-1 dark:border-zinc-700/40 dark:bg-zinc-700/80 dark:inset-shadow-white/20 dark:hover:bg-zinc-600/90 dark:disabled:hover:bg-zinc-700/80"
                   >
                     Indietro
                   </button>
@@ -199,7 +199,7 @@ function OrdersActivity({ orders }: { orders: LatestOrdersInfo[] }) {
                       setDirection(1);
                       setCurrentPage((prev) => prev + 1);
                     }}
-                    className="bg-brand-950 hover:bg-brand-900 touch-hitbox border-brand-950 flex cursor-pointer items-center rounded-lg border p-2 font-semibold text-white shadow-sm inset-shadow-2xs transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-zinc-700/80 lg:py-1 dark:border-zinc-700/40 dark:bg-zinc-700/80 dark:inset-shadow-white/20 dark:hover:bg-zinc-600/90"
+                    className="bg-brand-950 hover:bg-brand-900 touch-hitbox border-brand-950 disabled:hover:bg-brand-950 flex cursor-pointer items-center rounded-lg border p-2 font-semibold text-white shadow-sm inset-shadow-2xs transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-50 lg:py-1 dark:border-zinc-700/40 dark:bg-zinc-700/80 dark:inset-shadow-white/20 dark:hover:bg-zinc-600/90 dark:disabled:hover:bg-zinc-700/80"
                   >
                     Avanti
                   </button>

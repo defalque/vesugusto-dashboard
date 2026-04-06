@@ -67,7 +67,7 @@ function CredentialsForm({
         {...props}
         action={formAction}
         aria-labelledby="title"
-        className="space-y-4 py-5 sm:px-10"
+        className="space-y-4 px-1 py-5 sm:px-10"
       >
         <HeadingFormHidden id="title" className="sr-only">
           Form di {title}

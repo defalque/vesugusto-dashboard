@@ -26,6 +26,7 @@ import { DateRangeParams } from "@/app/_lib/definitions";
 import { DateRangeProvider } from "@/app/_contexts/DateRangeProvider";
 import DateRangeResolver from "@/app/_components/dashboard/DateRangeResolver";
 import DateRangePicker from "@/app/_components/dashboard/DateRangePicker";
+import DateRangePickerDrawer from "@/app/_components/dashboard/DateRangePickerDrawer";
 import { DashboardSkeleton } from "@/app/_components/ui/Skeletons";
 import { Suspense } from "react";
 
@@ -49,7 +50,10 @@ export default function Page({
           Panoramica
         </div>
         <DateRangeProvider>
-          <DateRangePicker />
+          <div className="flex items-center gap-2">
+            <DateRangePickerDrawer />
+            <DateRangePicker />
+          </div>
         </DateRangeProvider>
       </div>
 

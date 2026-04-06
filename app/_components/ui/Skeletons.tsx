@@ -22,42 +22,23 @@ export function UserAvatarSkeleton() {
 
 export function LoginFormSkeleton() {
   return (
-    <div className={`my-auto w-full gap-3 rounded-md sm:w-110`}>
-      <div className="dark:text-light _mt-5 flex w-full flex-col gap-3.5 px-5 pt-5 text-sm text-neutral-700 sm:px-10">
-        <div className="flex items-center justify-between">
-          <div className="flex gap-2">
-            <div
-              className={`relative h-4 w-14 overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
-            />
-            <div
-              className={`relative h-4 w-34 overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
-            />
-          </div>
+    <div className={`my-auto w-full gap-2 rounded-md sm:w-110`}>
+      <div className="space-y-4 px-1 sm:px-10">
+        <div className="flex flex-col gap-3">
           <div
-            className={`relative h-6.5 w-6.5 overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
+            className={`relative h-9 w-full overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
           />
-        </div>
-
-        <div className="flex items-center justify-between">
-          <div className="flex gap-2">
-            <div
-              className={`relative h-4 w-20 overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
-            />
-            <div
-              className={`relative h-4 w-34 overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
-            />
-          </div>
           <div
-            className={`relative h-6.5 w-6.5 overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
+            className={`relative h-9 w-full overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
           />
         </div>
       </div>
 
-      <div className="space-y-3 px-5 py-5 sm:px-10">
+      <div className="space-y-5 px-1 py-5 sm:px-10">
         {/* Email field */}
         <div className="mb-4 space-y-2">
           <div
-            className={`relative h-4 w-1/5 overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
+            className={`relative h-5.5 w-1/5 overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
           />
           <div
             className={`relative h-9 w-full overflow-hidden rounded-md bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
@@ -68,10 +49,10 @@ export function LoginFormSkeleton() {
         <div className="mb-4 space-y-2">
           <div className="flex justify-between">
             <div
-              className={`relative h-4 w-1/4 overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
+              className={`relative h-5.5 w-1/4 overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
             />
             <div
-              className={`relative h-4 w-1/2 self-end overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
+              className={`relative h-4 w-1/3 self-end overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
             />
           </div>
           <div
@@ -95,12 +76,12 @@ export function LoginFormSkeleton() {
 
 export function SignUpFormSkeleton() {
   return (
-    <div className="bg-box box-style w-full animate-pulse gap-3 rounded-md border sm:w-110">
+    <div className="w-full animate-pulse gap-3 sm:w-110">
       {/* Email field */}
-      <div className="space-y-3 px-5 py-5 sm:px-10">
-        <div className="mb-4 space-y-2">
+      <div className="px-1 py-5 sm:px-10">
+        <div className="mb-5 space-y-3">
           <div
-            className={`relative h-5 w-1/5 overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
+            className={`relative h-5.5 w-1/5 overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
           />
           <div
             className={`relative h-9 w-full overflow-hidden rounded-md bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
@@ -108,15 +89,10 @@ export function SignUpFormSkeleton() {
         </div>
 
         {/* Password field */}
-        <div className="mb-4 space-y-2">
-          <div className="flex justify-between">
-            <div
-              className={`relative h-5 w-1/4 overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
-            />
-            <div
-              className={`relative h-4 w-1/2 self-end overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
-            />
-          </div>
+        <div className="mb-5 space-y-3">
+          <div
+            className={`relative h-5.5 w-1/4 overflow-hidden rounded bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
+          />
           <div
             className={`relative h-9 w-full overflow-hidden rounded-md bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
           />
@@ -124,7 +100,7 @@ export function SignUpFormSkeleton() {
 
         {/* Button */}
         <div
-          className={`relative mt-10 h-10 w-full overflow-hidden rounded-md bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
+          className={`relative mt-8 h-10 w-full overflow-hidden rounded-md bg-gray-200 dark:bg-zinc-700 ${shimmer}`}
         />
 
         {/* Link */}
